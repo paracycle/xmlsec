@@ -1,0 +1,3 @@
+[submodule "vendor/xmlsec"]
+	path = vendor/xmlsec
+	url = git://git.gnome.org/xmlsec

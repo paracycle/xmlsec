@@ -12,11 +12,12 @@ require 'mkmf'
 
   Dir.chdir(File.join(root, 'vendor/xmlsec')) do
     puts("Building vendor xmlsec")
-    system "./configure", "--prefix=#{root}"
+    system "./autogen.sh", "--prefix=#{root} --without-libxslt"
+    #system "./configure", "--prefix=#{root}"
     system "make"
     system "make install"
     system "make clean"
   end
 #end
-dir_config('opt', "#{root}/include", "#{root}/lib")
+dir_config('opt', "#{root}/include/xmlsec1", "#{root}/lib")
 create_makefile('xmlsec/xmlsec_ext')

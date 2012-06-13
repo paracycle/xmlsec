@@ -3,8 +3,10 @@ require 'mkmf'
 unless pkg_config('xmlsec1-openssl')
   root = File.expand_path('../../..', __FILE__)
 
-  system "git submodule init"
-  system "git submodule update"
+  Dir.chdir(root) do
+    system "git submodule init"
+    system "git submodule update"
+  end
   
   Dir.chdir(File.join(root, 'vendor/xmlsec')) do
     system "./configure", "--prefix=#{root}"

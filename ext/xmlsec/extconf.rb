@@ -10,5 +10,5 @@ unless pkg_config('xmlsec1-openssl')
     system "make clean"
   end
 end
-
+dir_config('opt', "#{root}/include", "#{root}/lib")
 create_makefile('xmlsec/xmlsec_ext')
